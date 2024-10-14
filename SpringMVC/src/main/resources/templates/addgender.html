@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gender</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/addgender.css}">
+</head>
+<body>
+<form th:action="@{/addgender}" th:object="${genders}" method="post">
+    <h1>Giới tính</h1>
+    <div>
+        <input type="text" th:field="*{gioitinh}" placeholder="Thêm giới tính">
+    </div>
+
+        <button type="submit">Đăng ký giới tính</button>
+</form>
+</body>
+</html>
