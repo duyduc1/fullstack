@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/userdetail.css}">
+<head>
+    <title>User Details</title>
+</head>
+<body>
+<div class="container">
+    <h1>Chi tiết người dùng</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Giới Tính</th>
+            <th>Công Ty</th>
+            <th>Họ Và Tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Hành Động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${user != null}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.gioitinh}"></td>
+            <td th:text="${user.companyname}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.numberphone}"></td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${user.id})}">Chỉnh sửa</a>
+                <br>
+                <a th:href="@{/delete/{id}(id=${user.id})}">Xoá</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
