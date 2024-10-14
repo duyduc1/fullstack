@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Cập Nhật Người Dùng</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/edit.css}">
+</head>
+<body>
+<form th:action="@{/update/{id} (id = ${user.id})}" th:object="${user}" method="post">
+  <h1>Cập Nhật Người Dùng</h1>
+
+  <div  style="margin-top: 15px">
+    <input type="email" id="email" th:field="*{email}" placeholder="Nhập Email cần sửa"/><br>
+  </div>
+
+ <div  style="margin-top: 15px">
+   <input type="text" id="username" th:field="*{username}" placeholder="Nhập Tên cần sửa"><br>
+ </div>
+
+  <div  style="margin-top: 15px">
+    <input type="number" id="numberphone" th:field="*{numberphone}"  placeholder="Nhập Số điện thoại "><br>
+  </div>
+
+
+  <button type="submit">Lưu Thay Đổi</button>
+</form>
+</body>
+</html>

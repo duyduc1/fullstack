@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Đăng ký</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/register.css}">
+</head>
+<body>
+<form th:action="@{/register}" th:object="${user}" method="post">
+  <h2>Đăng Ký</h2>
+  <div style="margin-top: 30px">
+    <input type="email" th:field="*{email}" required placeholder="Email"/>
+  </div>
+  <div style="margin-top: 30px">
+    <input type="password" th:field="*{password}" required  placeholder="Password"/>
+  </div>
+  <div style="margin-top: 30px">
+    <input type="text" th:field="*{username}" required placeholder="Username"/>
+  </div>
+  <div style="margin-top: 30px">
+    <input type="text" th:field="*{numberphone}" required placeholder="numberphone"/>
+  </div>
+
+  <div class="ctn-div" style="margin-top: 15px">
+    <div>Company</div>
+    <select th:field="*{company.id}" required>
+      <option value="" disabled selected>Select a company</option>
+      <option th:each="company : ${companies}" th:value="${company.id}" th:text="${company.companyname}"></option>
+    </select>
+  </div>
+
+  <div class="ctn-div" style="margin-top: 15px">
+    <div>Gender</div>
+    <select th:field="*{gender.id}" required>
+      <option value="" disabled selected>Select your Gender</option>
+      <option th:each="gender : ${genders}" th:value="${gender.id}" th:text="${gender.gioitinh}"></option>
+    </select>
+  </div>
+
+  <button type="submit">Register</button>
+</form>
+</body>
+</html>

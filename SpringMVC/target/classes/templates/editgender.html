@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/editcompany.css}">
+</head>
+<body>
+<form th:action="@{/updategender/{id} (id = ${gender.id})}" th:object="${gender}" method="post">
+  <h1>Giới tính</h1>
+
+  <div>
+      <input type="text" id="gioitinh" th:field="*{gioitinh}" placeholder="Giới tính">
+  </div>
+
+  <button type="submit">Lưu thông tin</button>
+</form>
+</body>
+</html>
