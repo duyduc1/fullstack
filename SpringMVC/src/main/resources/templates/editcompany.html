@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/editcompany.css}">
+</head>
+<body>
+<form th:action="@{/updatecompany/{id} (id = ${company.id})}" th:object="${company}" method="post">
+    <h1>Chỉnh sửa thông tin</h1>
+    <div>
+        <input type="text" id="companyname" th:field="*{companyname}" placeholder="Nhập Công Ty">
+    </div>
+
+    <button type="submit">Lưu Công Ty</button>
+</form>
+</body>
+</html>
