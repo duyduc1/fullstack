@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Giới tính</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/gender.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Giơí tính</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Giới tính</th>
+            <th>Phương Thức</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="gender : ${genders}">
+            <td th:text="${gender.id}"></td>
+            <td th:text="${gender.gioitinh}"></td>
+            <td>
+                <a th:href="@{/editgender/{id}(id=${gender.id})}">Edit</a>
+                <br>
+                <a th:href="@{/deletegender/{id}(id=${gender.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

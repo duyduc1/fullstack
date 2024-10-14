@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Files</title>
+
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Tải lên File</h1>
+
+    <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="file" name="file" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Tải lên</button>
+    </form>
+
+    <h2 class="mt-5">Danh Sách File</h2>
+    <table class="table mt-3">
+        <thead>
+        <tr>
+            <th>Tên File</th>
+            <th>Kích Thước (Bytes)</th>
+            <th>Thao Tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="file : ${files}">
+            <td th:text="${file.fileName}"></td>
+            <td th:text="${file.fileSize}"></td>
+            <td>
+                <a th:href="@{/download/{id}(id=${file.id})}" class="btn btn-success">Tải Xuống</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

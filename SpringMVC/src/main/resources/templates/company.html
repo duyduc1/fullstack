@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/conpany.css}">
+</head>
+<body>
+
+<form th:action="@{/company}" th:object="${companies}" method="post">
+  <h1>Đăng Ký Công Ty</h1>
+  <div>
+    <input type="text"  th:field="*{companyname}" placeholder="Nhập tên công ty">
+  </div>
+  <div>
+    <button type="submit">Đăng ký </button>
+  </div>
+</form>
+</body>
+</html>
