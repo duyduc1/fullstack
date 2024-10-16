@@ -1,7 +1,8 @@
-package com.example.SpringMVC.controller;
+package com.example.VuDuyDuc_Task_springboot.controller;
 
-import com.example.SpringMVC.entity.Gender;
+
 import com.example.SpringMVC.service.GenderService;
+import com.example.VuDuyDuc_Task_springboot.entity.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,8 @@
-package com.example.SpringMVC.controller;
+package com.example.VuDuyDuc_Task_springboot.controller;
 
-import com.example.SpringMVC.entity.Companies;
-import com.example.SpringMVC.service.CompanyService;
+
+import com.example.VuDuyDuc_Task_springboot.entity.Companies;
+import com.example.VuDuyDuc_Task_springboot.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

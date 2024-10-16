@@ -1,7 +1,8 @@
-package com.example.SpringMVC.service;
+package com.example.VuDuyDuc_Task_springboot.service;
 
-import com.example.SpringMVC.entity.Companies;
-import com.example.SpringMVC.repository.CompanyRepository;
+
+import com.example.VuDuyDuc_Task_springboot.entity.Companies;
+import com.example.VuDuyDuc_Task_springboot.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

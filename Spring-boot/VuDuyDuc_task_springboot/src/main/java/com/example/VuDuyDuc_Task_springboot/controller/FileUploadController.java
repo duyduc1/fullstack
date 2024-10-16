@@ -1,8 +1,9 @@
-package com.example.SpringMVC.controller;
+package com.example.VuDuyDuc_Task_springboot.controller;
 
-import com.example.SpringMVC.entity.FileModel;
-import com.example.SpringMVC.repository.FileRepository;
-import com.example.SpringMVC.service.FileSystemStorageService;
+
+import com.example.VuDuyDuc_Task_springboot.entity.FileModel;
+import com.example.VuDuyDuc_Task_springboot.repository.FileRepository;
+import com.example.VuDuyDuc_Task_springboot.service.FileSystemStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;

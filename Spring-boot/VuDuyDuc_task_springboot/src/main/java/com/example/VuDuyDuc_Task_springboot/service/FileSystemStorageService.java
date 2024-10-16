@@ -1,7 +1,8 @@
-package com.example.SpringMVC.service;
+package com.example.VuDuyDuc_Task_springboot.service;
 
-import com.example.SpringMVC.entity.FileModel;
-import com.example.SpringMVC.repository.FileRepository;
+
+import com.example.VuDuyDuc_Task_springboot.entity.FileModel;
+import com.example.VuDuyDuc_Task_springboot.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

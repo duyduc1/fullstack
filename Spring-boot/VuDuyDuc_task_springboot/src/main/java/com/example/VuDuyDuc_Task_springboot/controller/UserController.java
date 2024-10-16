@@ -1,9 +1,11 @@
-package com.example.SpringMVC.controller;
+package com.example.VuDuyDuc_Task_springboot.controller;
 
-import com.example.SpringMVC.entity.User;
-import com.example.SpringMVC.service.CompanyService;
+
 import com.example.SpringMVC.service.GenderService;
-import com.example.SpringMVC.service.UserService;
+
+import com.example.VuDuyDuc_Task_springboot.entity.User;
+import com.example.VuDuyDuc_Task_springboot.service.CompanyService;
+import com.example.VuDuyDuc_Task_springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

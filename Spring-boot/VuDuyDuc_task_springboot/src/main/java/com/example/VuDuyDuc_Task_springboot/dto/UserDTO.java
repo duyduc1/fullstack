@@ -1,4 +1,4 @@
-package com.example.SpringMVC.dto;
+package com.example.VuDuyDuc_Task_springboot.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

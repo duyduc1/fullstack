@@ -1,6 +1,6 @@
-package com.example.SpringMVC.repository;
+package com.example.VuDuyDuc_Task_springboot.repository;
 
-import com.example.SpringMVC.entity.Companies;
+import com.example.VuDuyDuc_Task_springboot.entity.Companies;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,8 @@
 package com.example.SpringMVC.service;
 
-import com.example.SpringMVC.entity.Gender;
-import com.example.SpringMVC.repository.GenderRepository;
+
+import com.example.VuDuyDuc_Task_springboot.entity.Gender;
+import com.example.VuDuyDuc_Task_springboot.repository.GenderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

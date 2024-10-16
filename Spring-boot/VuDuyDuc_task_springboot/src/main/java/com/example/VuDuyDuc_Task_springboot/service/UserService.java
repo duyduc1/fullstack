@@ -1,10 +1,11 @@
-package com.example.SpringMVC.service;
+package com.example.VuDuyDuc_Task_springboot.service;
 
 
-import com.example.SpringMVC.entity.Companies;
-import com.example.SpringMVC.entity.Gender;
-import com.example.SpringMVC.entity.User;
-import com.example.SpringMVC.repository.UserRepository;
+
+import com.example.VuDuyDuc_Task_springboot.entity.Companies;
+import com.example.VuDuyDuc_Task_springboot.entity.Gender;
+import com.example.VuDuyDuc_Task_springboot.entity.User;
+import com.example.VuDuyDuc_Task_springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class UserService {
     private CompanyService companyService;
 
     @Autowired
-    private GenderService genderService;
+    private com.example.SpringMVC.service.GenderService genderService;
 
     public User register(User user) {
         Companies company = companyService.findById(user.getCompany().getId());

@@ -1,9 +1,8 @@
-package com.example.SpringMVC.controller;
+package com.example.VuDuyDuc_Task_springboot.controller;
 
 
-import com.example.SpringMVC.dto.UserDTO;
-import com.example.SpringMVC.entity.User;
-import com.example.SpringMVC.service.GetDataUserService;
+import com.example.VuDuyDuc_Task_springboot.entity.User;
+import com.example.VuDuyDuc_Task_springboot.service.GetDataUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

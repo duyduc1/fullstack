@@ -1,4 +1,4 @@
-package com.example.SpringMVC.entity;
+package com.example.VuDuyDuc_Task_springboot.entity;
 import jakarta.persistence.*;
 
 @Entity

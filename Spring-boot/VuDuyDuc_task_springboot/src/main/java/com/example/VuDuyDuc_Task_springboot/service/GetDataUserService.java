@@ -1,9 +1,10 @@
-package com.example.SpringMVC.service;
+package com.example.VuDuyDuc_Task_springboot.service;
 
-import com.example.SpringMVC.dto.UserDTO;
-import com.example.SpringMVC.entity.User;
-import com.example.SpringMVC.mapper.UserMapper;
-import com.example.SpringMVC.repository.UserRepository;
+
+import com.example.VuDuyDuc_Task_springboot.dto.UserDTO;
+import com.example.VuDuyDuc_Task_springboot.entity.User;
+import com.example.VuDuyDuc_Task_springboot.mapper.UserMapper;
+import com.example.VuDuyDuc_Task_springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
