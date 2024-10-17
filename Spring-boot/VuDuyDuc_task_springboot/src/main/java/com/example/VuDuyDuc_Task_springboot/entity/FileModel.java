@@ -25,18 +25,6 @@ public class FileModel {
     @Transient
     private byte[] data;
 
-    public FileModel() {
-    }
-
-    public FileModel(String fileName, String fileType, long fileSize, String filePath) {
-        this.fileName = fileName;
-        this.fileType = fileType;
-        this.fileSize = fileSize;
-        this.filePath = filePath;
-    }
-
-    // Getters and Setters
-
     public Long getId() {
         return id;
     }
@@ -84,4 +72,15 @@ public class FileModel {
     public void setData(byte[] data) {
         this.data = data;
     }
+
+    public FileModel() {
+    }
+
+    public FileModel(String fileName, String fileType, long fileSize, String filePath) {
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.fileSize = fileSize;
+        this.filePath = filePath;
+    }
+
 }

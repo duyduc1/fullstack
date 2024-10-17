@@ -1,18 +1,16 @@
 package com.example.VuDuyDuc_Task_springboot.controller;
 
-
-import com.example.SpringMVC.service.GenderService;
 import com.example.VuDuyDuc_Task_springboot.entity.Gender;
+import com.example.VuDuyDuc_Task_springboot.service.GenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/gender")
 public class GenderController {
 

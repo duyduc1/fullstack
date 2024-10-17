@@ -1,12 +1,17 @@
 package com.example.VuDuyDuc_Task_springboot.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "companies")
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Companies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,19 +27,5 @@ public class Companies {
         return users;
     }
 
-    public String getCompanyname() {
-        return companyname;
-    }
 
-    public void setCompanyname(String companyname) {
-        this.companyname = companyname;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
