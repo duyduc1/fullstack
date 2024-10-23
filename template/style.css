@@ -6,6 +6,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 header{
@@ -61,7 +62,7 @@ nav{
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 16px;
     padding: 0 4px;
     transition: all 0.1s ease;
     margin-left: 5px;
@@ -90,6 +91,7 @@ nav{
 
 .login{
     font-weight: bold;
+    font-size: 16px;
 }
 
 .signup{
@@ -98,6 +100,7 @@ nav{
     border: 1px solid #fff;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .hamburger-menu {
@@ -115,13 +118,13 @@ nav{
 }
 
 .nav-links li a {
-    border-bottom: none; 
-    padding-bottom: 5px; 
-    transition: border-bottom 0.3s ease; 
+    border-bottom: none;
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s ease;
 }
 
 .nav-links li a.active {
-    border-bottom: 2px solid white; 
+    border-bottom: 2px solid white;
 }
 
 .nav-links li a:hover {
@@ -152,13 +155,13 @@ nav{
         flex-direction: column;
         gap: 10px;
         padding: 0;
-        
+
     }
 
     .nav-links li {
         width: 100%;
     }
-    
+
     .nav-links li, .auth-links a {
         padding: 10px 30px;
     }
@@ -185,7 +188,7 @@ nav{
         height: 14rem;
     }
 
-    .show-menu nav, 
+    .show-menu nav,
     .show-menu .auth-links {
         display: flex;
     }
@@ -195,7 +198,7 @@ nav{
     .logo img {
         height: 40px;
     }
-    
+
     .hamburger-menu span {
         width: 20px;
     }
@@ -445,6 +448,7 @@ h1{
     align-items: center;
 }
 
+
 .service-card .icon {
     font-size: 40px;
     margin-bottom: 10px;
@@ -598,7 +602,7 @@ h1{
 }
 
 .tibo .bold2{
-    font-size: 14px;
+    font-size: 16px;
     padding-top: 5px;
 }
 
@@ -664,6 +668,10 @@ footer {
     margin-top: 80px;
 }
 
+.footer-menu{
+    margin-left: 120px;
+}
+
 .footer-logo  {
     display: flex;
     justify-content: center;
@@ -675,7 +683,7 @@ footer {
 }
 
 .footer-logo span p {
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .container-footer{
@@ -706,11 +714,13 @@ footer {
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
+    
     }
 
     .footer-menu {
         text-align: center;
         margin-bottom: 20px;
+        margin-right: 100px;
     }
 
     .footer-store {
@@ -734,7 +744,11 @@ footer {
 
     }
 
-    .footer-menu, .footer-store {
+    .footer-menu {
+        margin-left: -10px;
+    }
+
+    .footer-store {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
