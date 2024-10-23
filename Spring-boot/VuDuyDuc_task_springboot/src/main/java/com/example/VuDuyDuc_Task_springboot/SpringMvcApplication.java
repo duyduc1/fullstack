@@ -1,4 +1,4 @@
-package com.example.SpringMVC;
+package com.example.VuDuyDuc_Task_springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

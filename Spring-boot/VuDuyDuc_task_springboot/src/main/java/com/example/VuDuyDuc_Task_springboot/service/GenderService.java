@@ -34,7 +34,7 @@ public class GenderService {
         Optional<Gender> optionalGender = genderReposirtory.findById(id);
         if (optionalGender.isPresent()) {
             Gender gender = optionalGender.get();
-            gender.setGioitinh(updateGender.getGioitinh());
+            gender.setGenders(updateGender.getGenders());
             genderReposirtory.save(gender);
             return true;
         }

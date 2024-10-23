@@ -28,6 +28,6 @@ public class User {
     @JoinColumn(name = "gender_id" , referencedColumnName = "id" , nullable = false)
     private Gender gender;
 
-    @Column(name = "gioitinh")
-    private String gioitinh;
+    @Column(name = "genders")
+    private String genders;
 }

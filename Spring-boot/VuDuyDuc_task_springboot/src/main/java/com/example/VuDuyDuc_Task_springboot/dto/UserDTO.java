@@ -15,5 +15,5 @@ public class UserDTO {
     private Long companyId;
     private String companyname;
     private Long genderId;
-    private String gioitinh;
+    private String genders;
 }

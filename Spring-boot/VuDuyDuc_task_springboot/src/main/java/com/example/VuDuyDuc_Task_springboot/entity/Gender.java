@@ -18,7 +18,7 @@ public class Gender {
     private Long id;
 
     @Column(nullable = false)
-    private String gioitinh;
+    private String genders;
 
     @OneToMany(mappedBy = "gender" , cascade = CascadeType.ALL)
     private List<User> users;
