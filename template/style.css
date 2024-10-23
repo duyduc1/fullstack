@@ -54,6 +54,7 @@ nav{
     list-style: none;
     display: flex;
     gap: 20px;
+    padding-left: 530px;
 }
 
 .nav-links li a {
@@ -115,7 +116,8 @@ nav{
 
 .nav-links li a {
     border-bottom: none; 
-    padding-bottom: 5px;
+    padding-bottom: 5px; 
+    transition: border-bottom 0.3s ease; 
 }
 
 .nav-links li a.active {
@@ -123,10 +125,11 @@ nav{
 }
 
 .nav-links li a:hover {
-    border-bottom: 2px solid white; 
+    border-bottom: 2px solid white;
 }
 
-.nav-links li a:hover ~ .support-link {
+.nav-links li a:hover ~ .active,
+.nav-links li a:hover + .active {
     border-bottom: none;
 }
 
