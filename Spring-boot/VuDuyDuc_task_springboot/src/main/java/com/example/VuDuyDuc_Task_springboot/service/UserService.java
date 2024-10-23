@@ -29,9 +29,7 @@ public class UserService {
         Gender gender = genderService.findById(userDTO.getGenderId());
 
         user.setCompany(companies);
-        user.setCompanyname(companies.getCompanyname());
         user.setGender(gender);
-        user.setGioitinh(gender.getGioitinh());
 
         return userRepository.save(user);
     }

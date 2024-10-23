@@ -21,13 +21,8 @@ public class User {
     @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private Companies company;
 
-    @Column(name = "companyname")
-    private String companyname;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gender_id" , referencedColumnName = "id" , nullable = false)
     private Gender gender;
 
-    @Column(name = "genders")
-    private String genders;
 }
