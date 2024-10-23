@@ -22,6 +22,10 @@ header{
     z-index: 1000;
 }
 
+h1 {
+    text-align: center;
+    color: #0156A7;
+}
 
 .logo {
     display: flex;
@@ -109,9 +113,88 @@ nav{
     background-color: white;
 }
 
-.support-link {
-    border-bottom: 2px solid white; 
-    padding-bottom: 5px; 
-    width: 5px;
-    margin-bottom: -3px;
+.nav-links li a {
+    border-bottom: none; 
+    padding-bottom: 5px;
 }
+
+.nav-links li a.active {
+    border-bottom: 2px solid white; 
+}
+
+.nav-links li a:hover {
+    border-bottom: 2px solid white; 
+}
+
+.nav-links li a:hover ~ .support-link {
+    border-bottom: none;
+}
+
+
+
+@media (max-width: 768px) {
+    nav, .auth-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #0056A3;
+        text-align: center;
+    }
+
+
+    .nav-links, .auth-links {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links li, .auth-links a {
+        padding: 10px 30px;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .show-menu {
+        display: flex;
+    }
+
+    .login{
+        font-weight: bold;
+    }
+
+    .signup{
+        border: 1px solid transparent;
+        font-weight: bold;
+    }
+
+    .nav-links{
+        margin-top: 100px;
+        height: 14rem;
+    }
+
+    .show-menu nav, 
+    .show-menu .auth-links {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px;
+    }
+    
+    .hamburger-menu span {
+        width: 20px;
+    }
+}
+
