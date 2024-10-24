@@ -607,6 +607,7 @@ h2{
     display: flex;
     align-items: center;
     padding-top:5px;
+    line-height: 18.75px;
 }
 
 .item-br img:first-of-type {
@@ -614,8 +615,9 @@ h2{
 }
 
 .item-br p:first-of-type {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
+    margin-left: 5px;
 }
 
 .item-br img:nth-of-type(2) {
@@ -624,8 +626,9 @@ h2{
 }
 
 .item-br p:nth-of-type(2) {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
+    margin-left: 3px;
 }
 
 .news{
@@ -662,6 +665,7 @@ h2{
 .tibo .bold2{
     font-size: 16px;
     padding-top: 5px;
+    line-height: 30px;
 }
 
 
