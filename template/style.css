@@ -60,13 +60,12 @@ nav{
 }
 
 .nav-links li a {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.75px;
+    align-items: center;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 0 4px;
-    transition: all 0.1s ease;
-    margin-left: 5px;
 }
 
 .auth-links{
@@ -439,7 +438,7 @@ h1{
 
 .service-card {
     width: 414px;
-    height: 166px;
+    height: 143px;
     border: 1px solid transparent;
     border-radius: 5px;
     background-color: #ffffff;
@@ -455,12 +454,18 @@ h1{
 
 .menu-item {
     text-align: left;
-    margin-bottom: 21px;
+}
+
+.menu-item h3 {
+    font-size: 18px;
 }
 
 .menu-item p {
     font-size: 16px;
-    opacity: 0.5;
+    font-weight: 300;
+    opacity: 0.7;
+    line-height: 22px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .service-card .icon {
@@ -512,6 +517,9 @@ h2{
     text-align: center;
     margin-top: 30px;
     color: #0056A3;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 42.19px;
 }
 
 .icon3 {
@@ -599,6 +607,7 @@ h2{
     display: flex;
     align-items: center;
     padding-top:5px;
+    line-height: 18.75px;
 }
 
 .item-br img:first-of-type {
@@ -606,8 +615,9 @@ h2{
 }
 
 .item-br p:first-of-type {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
+    margin-left: 5px;
 }
 
 .item-br img:nth-of-type(2) {
@@ -616,8 +626,9 @@ h2{
 }
 
 .item-br p:nth-of-type(2) {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
+    margin-left: 3px;
 }
 
 .news{
@@ -654,6 +665,7 @@ h2{
 .tibo .bold2{
     font-size: 16px;
     padding-top: 5px;
+    line-height: 30px;
 }
 
 
