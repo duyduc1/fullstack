@@ -1,10 +1,13 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+import { defineConfig } from '@vue/cli-service'
 
-module.exports = {
-  devServer : {
-    port : 3002
-  }
-}
+export default defineConfig({
+  transpileDependencies: true,
+  devServer: {
+    port: 3002,
+  },
+  configureWebpack: {
+    output: {
+      chunkFormat: 'array-push', 
+    },
+  },
+})
