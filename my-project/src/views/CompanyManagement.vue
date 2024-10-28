@@ -40,7 +40,7 @@ export default defineComponent({
 
     const fetchCompany = async () => {
       try {
-        companies.value = await companyService.getAllCompany(newCompany.value);
+        companies.value = await companyService.getAllCompany();
       }catch (error) {
         console.error("Error fetching company:" , error);
       }
