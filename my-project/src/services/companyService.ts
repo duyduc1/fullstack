@@ -1,9 +1,5 @@
 import apiClient from "@/config/axiosInstance";
-
-export interface Company {
-    id? : number;
-    companyname : string;
-}
+import {Company} from "@/types/Company";
 
 const  API_URL = '/company'
 

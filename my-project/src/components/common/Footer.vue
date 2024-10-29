@@ -23,8 +23,8 @@
         <div class="footer-store">
           <p>Tải ứng dụng tại</p>
           <div class="store-icons">
-            <a href="#"><img src="../../assets/images/ggplay.png" alt="Google Play"></a>
-            <a href="#"><img src="../../assets/images/appstore.png" alt="App Store"></a>
+            <a href="#"><img src="@/assets/images/ggplay.png" alt="Google Play"></a>
+            <a href="#"><img src="@/assets/images/appstore.png" alt="App Store"></a>
           </div>
         </div>
       </div>

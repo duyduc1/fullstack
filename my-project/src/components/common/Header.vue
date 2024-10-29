@@ -1,7 +1,7 @@
 <template>
     <header>
       <div class="logo">
-        <img src="../../assets/images/logo.png" alt="Logo">
+        <img src="@/assets/images/logo.png" alt="Logo">
         <span>MY PORTAL</span>
       </div>
   
@@ -14,8 +14,8 @@
       <nav :class="{ 'show-menu': menuOpen }">
         <ul class="nav-links">
           <li><router-link to="/">Trang chủ</router-link></li>
-          <li><router-link to="#">Tiện ích từ chính quyền</router-link></li>
-          <li><router-link to="#">Dịch vụ</router-link></li>
+          <li><router-link to="/company">Tiện ích từ chính quyền</router-link></li>
+          <li><router-link to="/gender">Dịch vụ</router-link></li>
           <li><router-link to="#">Hỗ trợ</router-link></li>
         </ul>
       </nav>

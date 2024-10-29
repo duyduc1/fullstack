@@ -29,7 +29,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
-import { genderService, Gender } from '@/services/genderService';
+import { genderService } from '@/services/genderService';
+import {Gender} from "@/types/Gender";
 
 export default defineComponent({
   setup() {

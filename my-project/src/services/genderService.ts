@@ -1,9 +1,5 @@
 import apiClient from "@/config/axiosInstance";
-
-export interface Gender {
-    id?: number;
-    genders: string;
-}
+import {Gender} from "@/types/Gender";
 
 const API_URL = '/gender';
 

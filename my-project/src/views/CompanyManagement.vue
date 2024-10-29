@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="conmpany_container">
     <h1>Company Management</h1>
     <table>
       <thead>
@@ -29,7 +29,8 @@
 
 <script lang="ts">
 import {defineComponent , ref , onMounted} from "vue";
-import {companyService , Company} from "@/services/companyService";
+import {companyService } from "@/services/companyService";
+import {Company} from "@/types/Company";
 
 export default defineComponent({
   setup() {
@@ -111,6 +112,10 @@ export default defineComponent({
 </script>
 
 <style>
+
+.conmpany_container {
+  margin-top: 150px;
+}
 
 table {
   width: 100%;
