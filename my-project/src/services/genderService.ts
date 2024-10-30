@@ -26,5 +26,4 @@ export const genderService = {
     async deleteGender(id: number): Promise<void> {
         await apiClient.delete(`${API_URL}/${id}`);
     },
-}
-
+};

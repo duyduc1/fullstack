@@ -1,4 +1,7 @@
+import { User } from "./User";
+
 export interface Gender {
-    id?: number;
+    id?: number ;
     genders: string;
+    users : User[];
 }

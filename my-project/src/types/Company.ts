@@ -1,4 +1,7 @@
+import { User } from "./User";
+
 export interface Company {
-    id?: number;
+    id?: number ;
     companyname: string;
+    users : User[];
 }

@@ -6,6 +6,7 @@
       <tr>
         <th>ID</th>
         <th>Giới tính</th>
+        <th>Người dùng</th>
         <th>Hành động</th>
       </tr>
       </thead>
@@ -14,14 +15,19 @@
         <td>{{ gender.id }}</td>
         <td>{{ gender.genders }}</td>
         <td>
+          <ul>
+            <li v-for="user in gender.users" :key="user.id"> ID Người Dùng : {{user.id}} <br> Tên Người Dùng : {{ user.username }} <br> Email : {{ user.email }} <br> Số Điện Thoại {{ user.numberphone }} <hr></li>
+          </ul>
+        </td>
+        <td>
           <button @click="setEditGender(gender)">sửa</button>
-          <button @click="deleteGender(gender.id!)">xoá</button>
+          <button @click="deleteGender(gender.id)">xoá</button>
         </td>
       </tr>
       </tbody>
     </table>
     <form @submit.prevent="isEditing ? updateGender() : addGender()">
-      <input v-model="newGender.genders" placeholder="Nhập giới tinh" required />
+      <input v-model="newGender.genders" placeholder="Nhập giới tính" required />
       <button type="submit">{{ isEditing ? 'Cập nhật giới tính' : 'Thêm giới tính' }}</button>
     </form>
   </div>
@@ -30,18 +36,19 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
 import { genderService } from '@/services/genderService';
-import {Gender} from "@/types/Gender";
+import { Gender } from "@/types/Gender";
 
 export default defineComponent({
   setup() {
     const genders = ref<Gender[]>([]);
-    const newGender = ref<Gender>({ genders: '' });
+    const newGender = ref<Gender>({ genders: ''  , users: []});
     const isEditing = ref(false);
     const editGenderId = ref<number | null>(null);
 
     const fetchGenders = async () => {
       try {
         genders.value = await genderService.getAllGenders();
+        console.log("Genders Data:", genders.value);
       } catch (error) {
         console.error('Error fetching genders:', error);
       }
@@ -67,7 +74,7 @@ export default defineComponent({
       if (editGenderId.value) {
         try {
           await genderService.updateGender(editGenderId.value, newGender.value);
-          const index = genders.value.findIndex(gender => gender.id === editGenderId.value);
+          const index = genders.value.findIndex(g => g.id === editGenderId.value);
           if (index !== -1) {
             genders.value[index] = { ...newGender.value, id: editGenderId.value };
           }
@@ -81,14 +88,14 @@ export default defineComponent({
     const deleteGender = async (id: number) => {
       try {
         await genderService.deleteGender(id);
-        genders.value = genders.value.filter(gender => gender.id !== id);
+        genders.value = genders.value.filter(g => g.id !== id);
       } catch (error) {
         console.error('Error deleting gender:', error);
       }
     };
 
     const resetForm = () => {
-      newGender.value = { genders: '' };
+      newGender.value = { genders: '' , users: [] };
       isEditing.value = false;
       editGenderId.value = null;
     };
@@ -110,7 +117,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 .gender_container {
   margin-top: 200px;
 }
