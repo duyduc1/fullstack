@@ -1,6 +1,6 @@
 package com.example.VuDuyDuc_Task_springboot.controller;
 
-
+import com.example.VuDuyDuc_Task_springboot.dto.UserDTO;
 import com.example.VuDuyDuc_Task_springboot.entity.User;
 import com.example.VuDuyDuc_Task_springboot.service.GetDataUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +18,12 @@ import java.util.List;
 public class GetDataUserController {
 
     @Autowired
-    private GetDataUserService getDataUserService ;
+    private GetDataUserService getDataUserService;
 
     @GetMapping
-    public ResponseEntity<Page<User>> listUsersWithPaginate(Model model ,
-                                                            @RequestParam(defaultValue = "1") int page,
-                                                            @RequestParam(defaultValue = "5")int size) {
-        Page<User> userPage = getDataUserService.getUserWithPaginate(page, size);
-        List<User> users = userPage.getContent();
-        model.addAttribute("users" , users);
-        model.addAttribute("totalPages" , userPage.getTotalPages());
-        model.addAttribute("currentPage" , page);
-        model.addAttribute("size", size);
-        return new ResponseEntity<>(userPage, HttpStatus.OK);
+    public ResponseEntity<List<UserDTO>> getAllUser() {
+        List<UserDTO> users = getDataUserService.getAllUsers();
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -41,6 +34,12 @@ public class GetDataUserController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping
+    public ResponseEntity<User> addUser(@RequestBody UserDTO userDTO) {
+        User newUser = getDataUserService.addUser(userDTO);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
@@ -54,7 +53,7 @@ public class GetDataUserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> DeleteUser(@PathVariable("id") Long id){
+    public ResponseEntity<String> DeleteUser(@PathVariable("id") Long id) {
         boolean isDeleted = getDataUserService.deleteUser(id);
         if (isDeleted) {
             return new ResponseEntity<>("OK", HttpStatus.OK);
@@ -64,9 +63,9 @@ public class GetDataUserController {
     }
 
     @GetMapping("/search")
-    public String SearchUsers(@RequestParam("username") String username , Model model){
+    public String SearchUsers(@RequestParam("username") String username, Model model) {
         List<User> users = getDataUserService.searchUsersByUsername(username);
-        model.addAttribute("users" , users);
+        model.addAttribute("users", users);
         return "home";
     }
 }

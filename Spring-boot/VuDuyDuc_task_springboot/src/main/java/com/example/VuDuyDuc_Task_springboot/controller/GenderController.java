@@ -1,5 +1,6 @@
 package com.example.VuDuyDuc_Task_springboot.controller;
 
+import com.example.VuDuyDuc_Task_springboot.dto.GenderDTO;
 import com.example.VuDuyDuc_Task_springboot.entity.Gender;
 import com.example.VuDuyDuc_Task_springboot.service.GenderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,8 @@ public class GenderController {
     private GenderService genderService;
 
     @GetMapping
-    public ResponseEntity<List<Gender>> getAllGenders() {
-        List<Gender> genders = genderService.getAllGenders();
-        return new ResponseEntity<>(genders, HttpStatus.OK);
+    public List<GenderDTO> getAllGenders() {
+        return genderService.getAllGenderWithUsers();
     }
 
     @PostMapping

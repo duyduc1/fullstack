@@ -1,6 +1,8 @@
 package com.example.VuDuyDuc_Task_springboot.service;
 
 
+import com.example.VuDuyDuc_Task_springboot.dto.CompanyDTO;
+import com.example.VuDuyDuc_Task_springboot.dto.UserDTO;
 import com.example.VuDuyDuc_Task_springboot.entity.Companies;
 import com.example.VuDuyDuc_Task_springboot.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyService {
@@ -19,8 +22,22 @@ public class CompanyService {
         return companyRepository.save(companies);
     }
 
-    public List<Companies> getAll() {
-        return companyRepository.findAll();
+    public List<CompanyDTO> getAllCompaniesWithUsers() {
+        List<Companies> companies = companyRepository.findAll();
+
+        return companies.stream().map(company -> new CompanyDTO(
+                company.getId(),
+                company.getCompanyname(),
+                company.getUsers().stream()
+                        .map(user -> new UserDTO(
+                                user.getId(),
+                                user.getEmail(),
+                                user.getUsername(),
+                                user.getNumberphone(),
+                                company.getId()
+                        ))
+                        .collect(Collectors.toList())
+        )).collect(Collectors.toList());
     }
 
     public Optional<Companies> getCompanyById(Long id) {

@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserDTO {
     private Long id;
     private String email;
@@ -14,4 +12,15 @@ public class UserDTO {
     private Integer numberphone;
     private Long companyId;
     private Long genderId;
+
+    public UserDTO() {
+
+    }
+
+    public UserDTO(Long id, String email, String username, Integer numberphone, Long companyId) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.numberphone = numberphone;
+    }
 }

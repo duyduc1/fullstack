@@ -25,6 +25,7 @@ public class UserService {
 
     public User register(UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
+        
         Companies companies = companyService.findById(userDTO.getCompanyId());
         Gender gender = genderService.findById(userDTO.getGenderId());
 

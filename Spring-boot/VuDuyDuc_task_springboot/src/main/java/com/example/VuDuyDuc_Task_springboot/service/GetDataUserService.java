@@ -2,6 +2,8 @@ package com.example.VuDuyDuc_Task_springboot.service;
 
 
 import com.example.VuDuyDuc_Task_springboot.dto.UserDTO;
+import com.example.VuDuyDuc_Task_springboot.entity.Companies;
+import com.example.VuDuyDuc_Task_springboot.entity.Gender;
 import com.example.VuDuyDuc_Task_springboot.entity.User;
 import com.example.VuDuyDuc_Task_springboot.mapper.UserMapper;
 import com.example.VuDuyDuc_Task_springboot.repository.UserRepository;
@@ -21,6 +23,12 @@ public class GetDataUserService {
     private UserRepository userRepository;
 
     @Autowired
+    private CompanyService companyService;
+
+    @Autowired
+    private GenderService genderService;
+
+    @Autowired
     private UserMapper userMapper;
 
     public Page<User> getUserWithPaginate(int pageNumber , int pageSize){
@@ -33,6 +41,15 @@ public class GetDataUserService {
         return users.stream()
                 .map(userMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public User addUser(UserDTO userDTO) {
+        User user = userMapper.toEntity(userDTO);
+        Companies companies = companyService.findById(userDTO.getCompanyId());
+        Gender gender = genderService.findById(userDTO.getGenderId());
+        user.setCompany(companies);
+        user.setGender(gender);
+        return userRepository.save(user);
     }
 
     public User getUserById(Long id){

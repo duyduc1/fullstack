@@ -1,6 +1,7 @@
 package com.example.VuDuyDuc_Task_springboot.controller;
 
 
+import com.example.VuDuyDuc_Task_springboot.dto.CompanyDTO;
 import com.example.VuDuyDuc_Task_springboot.entity.Companies;
 import com.example.VuDuyDuc_Task_springboot.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,8 @@ public class CompanyController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Companies>> getAllCompanies() {
-        List<Companies> companies = companyService.getAll();
-        return ResponseEntity.ok(companies);
+    public List<CompanyDTO> getAllCompanies() {
+        return companyService.getAllCompaniesWithUsers();
     }
 
     @PutMapping("/{id}")
