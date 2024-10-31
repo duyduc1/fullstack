@@ -4,6 +4,8 @@ package com.example.VuDuyDuc_Task_springboot.service;
 import com.example.VuDuyDuc_Task_springboot.dto.GenderDTO;
 import com.example.VuDuyDuc_Task_springboot.dto.UserDTO;
 import com.example.VuDuyDuc_Task_springboot.entity.Gender;
+import com.example.VuDuyDuc_Task_springboot.mapper.GenderMapper;
+import com.example.VuDuyDuc_Task_springboot.mapper.UserMapper;
 import com.example.VuDuyDuc_Task_springboot.repository.GenderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,12 @@ public class GenderService {
     @Autowired
     private GenderRepository genderReposirtory;
 
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private GenderMapper genderMapper;
+
     public Gender saveGender(Gender gender){
         return genderReposirtory.save(gender);
     }
@@ -25,19 +33,18 @@ public class GenderService {
     public List<GenderDTO> getAllGenderWithUsers() {
         List<Gender> genders = genderReposirtory.findAll();
 
-        return genders.stream().map(gender -> new GenderDTO(
-                gender.getId(),
-                gender.getGenders(),
-                gender.getUsers().stream()
-                        .map(user -> new UserDTO(
-                                user.getId(),
-                                user.getEmail(),
-                                user.getUsername(),
-                                user.getNumberphone(),
-                                gender.getId()
-                        ))
-                        .collect(Collectors.toList())
-        )).collect(Collectors.toList());
+        return genders.stream()
+                .map(gender -> {
+                    GenderDTO genderDTO = genderMapper.toGenderDTO(gender);
+
+                    List<UserDTO> userDTOS = gender.getUsers().stream()
+                            .map(userMapper::toDTO)
+                            .collect(Collectors.toList());
+
+                    genderDTO.setUsers(userDTOS);
+                    return genderDTO;
+                })
+                .collect(Collectors.toList());
     }
 
 
