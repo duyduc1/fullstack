@@ -16,7 +16,7 @@
           <li><router-link to="/">Trang chủ</router-link></li>
           <li><router-link to="/company">Tiện ích từ chính quyền</router-link></li>
           <li><router-link to="/gender">Dịch vụ</router-link></li>
-          <li><router-link to="#">Hỗ trợ</router-link></li>
+          <li><router-link to="/user">Hỗ trợ</router-link></li>
         </ul>
       </nav>
   
