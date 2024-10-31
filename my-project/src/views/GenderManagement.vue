@@ -11,106 +11,47 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="gender in genders" :key="gender.id">
+      <tr v-for="gender in genderStore.genders" :key="gender.id">
         <td>{{ gender.id }}</td>
         <td>{{ gender.genders }}</td>
         <td>
           <ul>
-            <li v-for="user in gender.users" :key="user.id"> ID Người Dùng : {{user.id}} <br> Tên Người Dùng : {{ user.username }} <br> Email : {{ user.email }} <br> Số Điện Thoại {{ user.numberphone }} <hr></li>
+            <li v-for="user in gender.users" :key="user.id">
+              ID Người Dùng : {{user.id}} <br>
+              Tên Người Dùng : {{ user.username }} <br>
+              Email : {{ user.email }} <br>
+              Số Điện Thoại : {{ user.numberphone }} <hr>
+            </li>
           </ul>
         </td>
         <td>
-          <button @click="setEditGender(gender)">sửa</button>
-          <button @click="deleteGender(gender.id)">xoá</button>
+          <button @click="genderStore.setEditGender(gender)">sửa</button>
+          <button @click="genderStore.deleteGender(gender.id)">xoá</button>
         </td>
       </tr>
       </tbody>
     </table>
-    <form @submit.prevent="isEditing ? updateGender() : addGender()">
-      <input v-model="newGender.genders" placeholder="Nhập giới tính" required />
-      <button type="submit">{{ isEditing ? 'Cập nhật giới tính' : 'Thêm giới tính' }}</button>
+    <form @submit.prevent="genderStore.isEditing ? genderStore.updateGender() : genderStore.addGender()">
+      <input v-model="genderStore.newGender.genders" placeholder="Nhập giới tính" required />
+      <button type="submit">{{ genderStore.isEditing ? 'Cập nhật giới tính' : 'Thêm giới tính' }}</button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
-import { genderService } from '@/services/genderService';
-import { Gender } from "@/types/Gender";
+import { defineComponent, onMounted } from 'vue';
+import { useGenderStore } from '@/stores/genderStore';
 
 export default defineComponent({
   setup() {
-    const genders = ref<Gender[]>([]);
-    const newGender = ref<Gender>({ genders: ''  , users: []});
-    const isEditing = ref(false);
-    const editGenderId = ref<number | null>(null);
+    const genderStore = useGenderStore();
 
-    const fetchGenders = async () => {
-      try {
-        genders.value = await genderService.getAllGenders();
-        console.log("Genders Data:", genders.value);
-      } catch (error) {
-        console.error('Error fetching genders:', error);
-      }
-    };
-
-    const addGender = async () => {
-      try {
-        const savedGender = await genderService.saveGender(newGender.value);
-        genders.value.push(savedGender);
-        newGender.value.genders = '';
-      } catch (error) {
-        console.error('Error adding gender:', error);
-      }
-    };
-
-    const setEditGender = (gender: Gender) => {
-      newGender.value = { ...gender };
-      editGenderId.value = gender.id !== undefined ? gender.id : null;
-      isEditing.value = true;
-    };
-
-    const updateGender = async () => {
-      if (editGenderId.value) {
-        try {
-          await genderService.updateGender(editGenderId.value, newGender.value);
-          const index = genders.value.findIndex(g => g.id === editGenderId.value);
-          if (index !== -1) {
-            genders.value[index] = { ...newGender.value, id: editGenderId.value };
-          }
-          resetForm();
-        } catch (error) {
-          console.error('Error updating gender:', error);
-        }
-      }
-    };
-
-    const deleteGender = async (id: number) => {
-      try {
-        await genderService.deleteGender(id);
-        genders.value = genders.value.filter(g => g.id !== id);
-      } catch (error) {
-        console.error('Error deleting gender:', error);
-      }
-    };
-
-    const resetForm = () => {
-      newGender.value = { genders: '' , users: [] };
-      isEditing.value = false;
-      editGenderId.value = null;
-    };
-
-    onMounted(fetchGenders);
+    onMounted(() => {
+      genderStore.fetchGenders();
+    });
 
     return {
-      genders,
-      newGender,
-      isEditing,
-      addGender,
-      updateGender,
-      deleteGender,
-      setEditGender,
-      resetForm,
+      genderStore,
     };
   },
 });

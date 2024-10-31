@@ -40,124 +40,37 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
-import { userService } from "@/services/userService";
-import { genderService } from "@/services/genderService";
-import { companyService } from "@/services/companyService";
-import { User } from "@/types/User";
-import { Gender } from "@/types/Gender";
-import { Company } from "@/types/Company";
+import { defineComponent, computed } from "vue";
+import {useUserStore} from "@/stores/userStore";
+import {User} from "@/types/User";
 
 export default defineComponent({
   setup() {
-    const users = ref<User[]>([]);
-    const newUser = ref<User>({
-      email: '',
-      username: '',
-      numberphone: 0,
-      companyId: 0,
-      genderId: 0,
-    });
-    const isEditing = ref(false);
-    const editUserId = ref<number | null>(null);
-    const genders = ref<Gender[]>([]);
-    const companies = ref<Company[]>([]);
+    const userStore = useUserStore();
 
-    const fetchUsers = async () => {
-      try {
-        users.value = await userService.getAllUsers();
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
+    const users = computed(() => userStore.users);
+    const newUser = computed(() => userStore.newUser);
+    const isEditing = computed(() => userStore.isEditing);
+    const genders = computed(() => userStore.genders);
+    const companies = computed(() => userStore.companies);
 
-    const fetchGenders = async () => {
-      try {
-        genders.value = await genderService.getAllGenders();
-      } catch (error) {
-        console.error("Error fetching genders:", error);
-      }
-    };
+    const addUser = () => userStore.addUser();
+    const updateUser = () => userStore.updateUser();
+    const deleteUser = (id: number) => userStore.deleteUser(id);
+    const setEditUser = (user: User) => userStore.setEditUser(user);
 
-    const fetchCompanies = async () => {
-      try {
-        companies.value = await companyService.getAllCompany();
-      } catch (error) {
-        console.error("Error fetching companies:", error);
-      }
-    };
+    userStore.fetchUsers();
+    userStore.fetchGenders();
+    userStore.fetchCompanies();
 
-    const addUser = async () => {
-      try {
-        const savedUser = await userService.saveUser(newUser.value);
-        users.value.push(savedUser);
-        resetForm();
-      } catch (error) {
-        console.error("Error adding user:", error);
-      }
-    };
-
-    const setEditUser = (user: User) => {
-      newUser.value = { ...user };
-      editUserId.value = user.id !== undefined ? user.id : null;
-      isEditing.value = true;
-    };
-
-    const updateUser = async () => {
-      if (editUserId.value) {
-        try {
-          await userService.updateUser(editUserId.value, newUser.value);
-          const index = users.value.findIndex(user => user.id === editUserId.value);
-          if (index !== -1) {
-            users.value[index] = { ...newUser.value, id: editUserId.value };
-          }
-          resetForm();
-        } catch (error) {
-          console.error("Error updating user:", error);
-        }
-      }
-    };
-
-    const deleteUser = async (id: number) => {
-      try {
-        await userService.deleteUser(id);
-        users.value = users.value.filter(user => user.id !== id);
-      } catch (error) {
-        console.error("Error deleting user:", error);
-      }
-    };
-
-    const resetForm = () => {
-      newUser.value = { email: '', username: '', numberphone: 0, companyId: 0, genderId: 0 };
-      isEditing.value = false;
-      editUserId.value = null;
-    };
-
-    onMounted(() => {
-      fetchUsers();
-      fetchGenders();
-      fetchCompanies();
-    });
-
-    return {
-      users,
-      newUser,
-      isEditing,
-      addUser,
-      updateUser,
-      deleteUser,
-      setEditUser,
-      resetForm,
-      genders,
-      companies, // Return the genders and companies for the template
-    };
+    return { users, newUser, isEditing, addUser, updateUser, deleteUser, setEditUser, genders, companies };
   },
 });
 </script>
 
 <style>
 .user-container {
-  margin-top: 200px;
+  margin-top: 150px;
 }
 table {
   width: 100%;
