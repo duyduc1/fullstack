@@ -31,11 +31,6 @@ public class GetDataUserService {
     @Autowired
     private UserMapper userMapper;
 
-    public Page<User> getUserWithPaginate(int pageNumber , int pageSize){
-        Pageable pageable = PageRequest.of(pageNumber - 1 , pageSize);
-        return userRepository.findAll(pageable);
-    }
-
     public List<UserDTO> getAllUsers() {
         List<User> users = userRepository.findAll();
         return users.stream()
@@ -44,7 +39,11 @@ public class GetDataUserService {
     }
 
     public User addUser(UserDTO userDTO) {
-        User user = userMapper.toEntity(userDTO);
+        User user = new User();
+        user.setId(userDTO.getId());
+        user.setEmail(userDTO.getEmail());
+        user.setUsername(userDTO.getUsername());
+        user.setNumberphone(userDTO.getNumberphone());
         Companies companies = companyService.findById(userDTO.getCompanyId());
         Gender gender = genderService.findById(userDTO.getGenderId());
         user.setCompany(companies);

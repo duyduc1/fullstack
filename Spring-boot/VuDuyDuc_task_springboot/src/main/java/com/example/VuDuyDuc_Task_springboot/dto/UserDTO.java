@@ -1,24 +1,31 @@
 package com.example.VuDuyDuc_Task_springboot.dto;
 
+import com.example.VuDuyDuc_Task_springboot.entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
+    private int statusCode;
+    private String error;
+    private String message;
+    private String token;
+    private String refreshToken;
+    private String expirationTime;
     private Long id;
     private String email;
     private String username;
+    private String password;
     private Integer numberphone;
+    private String role;
     private Long companyId;
     private Long genderId;
-
-    public UserDTO(Long id, String email, String username, Integer numberphone, Long companyId , Long genderId) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.numberphone = numberphone;
-        this.companyId = companyId;
-        this.genderId = genderId;
-    }
+    private User user;
 }
