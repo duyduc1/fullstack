@@ -1,5 +1,6 @@
 package com.example.VuDuyDuc_Task_springboot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

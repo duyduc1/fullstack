@@ -16,8 +16,17 @@ public class AuthUserController {
     @Autowired
     private AuthUserService authUserService;
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     public ResponseEntity<UserDTO> signup(@RequestBody UserDTO userDTO) {
         return ResponseEntity.ok(authUserService.signUp(userDTO));
+    }
+
+    @PostMapping("/signin")
+    public ResponseEntity<UserDTO> signIn(@RequestBody UserDTO signinRequest) {
+        return ResponseEntity.ok(authUserService.signIn(signinRequest));
+    }
+    @PostMapping("/refresh")
+    public ResponseEntity<UserDTO> refreshToken(@RequestBody UserDTO refreshTokenRequest) {
+        return ResponseEntity.ok(authUserService.refreshToken(refreshTokenRequest));
     }
 }

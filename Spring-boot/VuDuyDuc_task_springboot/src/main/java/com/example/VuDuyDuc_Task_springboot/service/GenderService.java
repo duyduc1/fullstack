@@ -35,6 +35,7 @@ public class GenderService {
 
         return genders.stream()
                 .map(gender -> {
+                    System.out.println("Gender entity before mapping: " + gender);
                     GenderDTO genderDTO = genderMapper.toGenderDTO(gender);
 
                     List<UserDTO> userDTOS = gender.getUsers().stream()
@@ -42,6 +43,7 @@ public class GenderService {
                             .collect(Collectors.toList());
 
                     genderDTO.setUsers(userDTOS);
+                    System.out.println("Mapped GenderDTO: " + genderDTO);
                     return genderDTO;
                 })
                 .collect(Collectors.toList());

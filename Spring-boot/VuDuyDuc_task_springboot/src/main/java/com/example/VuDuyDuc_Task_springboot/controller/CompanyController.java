@@ -24,8 +24,9 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<CompanyDTO> getAllCompanies() {
-        return companyService.getAllCompaniesWithUsers();
+    public ResponseEntity<List<CompanyDTO>> getAllCompanies() {
+        List<CompanyDTO> companies = companyService.getAllCompaniesWithUsers();
+        return ResponseEntity.ok(companies);
     }
 
     @PutMapping("/{id}")

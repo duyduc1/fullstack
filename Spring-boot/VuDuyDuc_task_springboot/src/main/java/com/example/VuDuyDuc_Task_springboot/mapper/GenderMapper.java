@@ -5,11 +5,14 @@ import com.example.VuDuyDuc_Task_springboot.dto.UserDTO;
 import com.example.VuDuyDuc_Task_springboot.entity.Gender;
 import com.example.VuDuyDuc_Task_springboot.entity.User;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface GenderMapper {
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "genders", target = "genders")
     GenderDTO toGenderDTO(Gender gender);
 
     UserDTO toUserDTO(User user);

@@ -16,7 +16,6 @@ public class UserDTO {
     private int statusCode;
     private String error;
     private String message;
-    private String token;
     private String refreshToken;
     private String expirationTime;
     private Long id;
@@ -28,4 +27,5 @@ public class UserDTO {
     private Long companyId;
     private Long genderId;
     private User user;
+    private String token;
 }
