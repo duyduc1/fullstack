@@ -8,6 +8,7 @@
         <th>Email</th>
         <th>Username</th>
         <th>Number Phone</th>
+        <th>Role</th>
         <th>Actions</th>
       </tr>
       </thead>
@@ -17,6 +18,7 @@
         <td>{{ user.email }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.numberphone }}</td>
+        <td>{{user.role}}</td>
         <td>
           <button @click="setEditUser(user)">Edit</button>
           <button @click="deleteUser(user.id)">Delete</button>

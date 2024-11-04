@@ -12,9 +12,11 @@ export const useUserStore = defineStore('userStore', {
         newUser: {
             email: '',
             username: '',
-            numberphone: 0,
-            companyId: 0,
-            genderId: 0,
+            role:'',
+            password: '',
+            numberphone: null,
+            companyId: null,
+            genderId: null,
         } as User,
         isEditing: false,
         editUserId: null as number | null,
@@ -86,9 +88,11 @@ export const useUserStore = defineStore('userStore', {
             this.newUser = {
                 email: '',
                 username: '',
-                numberphone: 0,
-                companyId: 0,
-                genderId: 0,
+                role:'',
+                password: '',
+                numberphone: null,
+                companyId: null,
+                genderId: null,
             };
             this.isEditing = false;
             this.editUserId = null;

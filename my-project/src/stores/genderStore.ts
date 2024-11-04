@@ -23,6 +23,7 @@ export const useGenderStore = defineStore('genderStore', {
         async addGender() {
             try {
                 const savedGender = await genderService.saveGender(this.newGender);
+
                 this.genders.push(savedGender);
                 this.resetForm();
             } catch (error) {

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeViews.vue'
 import GenderManagement from "@/views/GenderManagement.vue";
 import CompanyManagement from "@/views/CompanyManagement.vue";
 import UserManagement from "@/views/UserManagement.vue";
+import Register from "@/components/fearture/RegisterForm.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     path:'/user',
     name: 'User',
     component: UserManagement
+  },
+  {
+    path:'/register',
+    name:'RegisterForm',
+    component:Register
   }
 ]
 
