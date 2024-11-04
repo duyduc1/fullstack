@@ -15,7 +15,4 @@ public interface CompanyMapper {
 
     UserDTO toUserDTO(User user);
 
-    List<CompanyDTO> toCompanyDTOList(List<Companies> companies);
-
-    List<UserDTO> toUserDTOList(List<User> users);
 }

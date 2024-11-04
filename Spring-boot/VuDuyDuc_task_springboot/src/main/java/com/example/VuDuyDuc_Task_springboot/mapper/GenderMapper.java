@@ -14,8 +14,4 @@ public interface GenderMapper {
     GenderDTO toGenderDTO(Gender gender);
 
     UserDTO toUserDTO(User user);
-
-    List<GenderDTO> toGenderDTOList(List<Gender> genderList);
-
-    List<UserDTO> toUserDTOList(List<User> userList);
 }
