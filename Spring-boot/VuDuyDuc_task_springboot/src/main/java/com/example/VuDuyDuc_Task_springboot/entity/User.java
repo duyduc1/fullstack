@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -40,34 +41,40 @@ public class User implements UserDetails {
     @JsonIgnore
     private Gender gender;
 
+    // Implementing UserDetails methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role));
+        return Collections.emptyList(); // or add logic to return roles/authorities
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return true; // or add logic if needed
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return true; // or add logic if needed
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return true; // or add logic if needed
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return true; // or add logic if needed
     }
 
     @Override

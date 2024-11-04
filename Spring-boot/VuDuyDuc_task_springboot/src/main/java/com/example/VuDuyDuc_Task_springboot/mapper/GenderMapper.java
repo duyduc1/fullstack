@@ -11,8 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface GenderMapper {
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "genders", target = "genders")
     GenderDTO toGenderDTO(Gender gender);
 
     UserDTO toUserDTO(User user);

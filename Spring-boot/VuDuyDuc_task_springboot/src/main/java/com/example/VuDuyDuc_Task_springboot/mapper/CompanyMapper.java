@@ -11,8 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CompanyMapper {
-    @Mapping(source = "id" , target = "id")
-    @Mapping(source = "companyname" , target = "companyname")
     CompanyDTO toCompanyDTO(Companies company);
 
     UserDTO toUserDTO(User user);
