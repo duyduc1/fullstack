@@ -4,6 +4,7 @@ import GenderManagement from "@/views/GenderManagement.vue";
 import CompanyManagement from "@/views/CompanyManagement.vue";
 import UserManagement from "@/views/UserManagement.vue";
 import Register from "@/components/fearture/RegisterForm.vue";
+import LoginForm from '@/components/fearture/LoginForm.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     path:'/register',
     name:'RegisterForm',
     component:Register
+  },
+  {
+    path:'/login',
+    name:'LoginForm',
+    component:LoginForm
   }
 ]
 

@@ -21,8 +21,8 @@
       </nav>
   
       <div :class="{ 'auth-links': true, 'show-menu': menuOpen }">
-        <a href="#" class="login">Đăng nhập</a>
-        <a href="#" class="signup">Đăng ký</a>
+        <router-link to="/login" class="login">Đăng nhập</router-link>
+        <router-link to="/register" class="signup">Đăng ký</router-link>
       </div>
     </header>
   </template>

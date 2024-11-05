@@ -7,4 +7,16 @@ export interface User {
     role:string;
     companyId: number | null;
     genderId: number | null;
+    statusCode?: number; 
 }
+
+export interface LoginRequest {
+    email: string;
+    password: string;
+    username?: string;
+  }
+
+export interface LoginResponse {
+    token: string;
+    refreshToken: string;
+  }
