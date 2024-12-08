@@ -10,6 +10,5 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CompanyMapper {
     CompanyDTO toCompanyDTO(Companies company);
-
     UserDTO toUserDTO(User user);
 }
