@@ -103,7 +103,7 @@ output "rds_connection_string" {
 
   value       = "mysql -h ${aws_db_instance.mysql.address} -P ${aws_db_instance.mysql.port} -u ${var.rds_username} -p ${var.rds_password}"
 
-  sensitive   = false
+  sensitive   = true
 
 }
  
