@@ -128,7 +128,7 @@ variable "rds_instance_class" {
 
   type        = string
 
-  default     = "db.t3.medium"
+  default     = "db.t2.micro"
 
 }
  
