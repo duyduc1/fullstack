@@ -71,7 +71,7 @@ resource "aws_apigatewayv2_integration" "items_proxy" {
  
   # Request parameter mapping - forward all path parameters
   request_parameters = {
-    "overwrite:path" = "/api/v1/items/$$request.path.proxy"
+    "overwrite:path" = "/api/v1/items/$request.path.proxy"
   }
  
   payload_format_version = "1.0"
@@ -107,7 +107,7 @@ resource "aws_apigatewayv2_integration" "order_proxy" {
  
   # Request parameter mapping - forward all path parameters
   request_parameters = {
-    "overwrite:path" = "/api/v1/order/$$request.path.proxy"
+    "overwrite:path" = "/api/v1/order/$request.path.proxy"
   }
  
   payload_format_version = "1.0"
