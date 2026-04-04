@@ -26,13 +26,13 @@ availability_zones  = ["ap-southeast-1a", "ap-southeast-1b"]
 
 ec2_instance_type = "t3.medium"
 
-ec2_key_name      = "aws_key"
+ec2_key_name      = ""
 
 ec2_ami_id        = "" # Auto-detect Amazon Linux 2023
  
 # RDS MySQL
 
-rds_instance_class    = "db.t3.medium"
+rds_instance_class    = "db.t3.micro"
 
 rds_db_name           = "honda_pedi_db"
 
