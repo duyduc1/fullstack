@@ -24,7 +24,7 @@ availability_zones  = ["ap-southeast-1a", "ap-southeast-1b"]
  
 # EC2
 
-ec2_instance_type = "t3.medium"
+ec2_instance_type = "t2.micro"
 
 ec2_key_name      = ""
 
