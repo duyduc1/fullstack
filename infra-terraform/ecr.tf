@@ -1,18 +1,3 @@
-ecr.tf
-#===============================================================================
-
-# ECR - Elastic Container Registry
-
-# Honda PEDI Infrastructure
-
-#===============================================================================
- 
-#---------------------------------------
-
-# ECR Repository - Items Service
-
-#---------------------------------------
-
 resource "aws_ecr_repository" "items_service" {
 
   name                 = "${local.name_prefix}-items-service"
