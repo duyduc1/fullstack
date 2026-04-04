@@ -1,17 +1,3 @@
-#===============================================================================
-
-# RDS MySQL - Public Access
-
-# Honda PEDI Infrastructure
-
-#===============================================================================
- 
-#---------------------------------------
-
-# DB Subnet Group (using PUBLIC subnets for public access)
-
-#---------------------------------------
-
 resource "aws_db_subnet_group" "main" {
 
   name       = "${local.name_prefix}-db-subnet-group"

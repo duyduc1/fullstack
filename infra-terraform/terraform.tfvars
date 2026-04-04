@@ -54,9 +54,9 @@ ecs_order_service_cpu    = 512
 
 ecs_order_service_memory = 1024
  
-items_service_container_port = 8080
+items_service_container_port = 3000
 
-order_service_container_port = 8081
+order_service_container_port = 3000
  
 ecs_desired_count = 2
  
