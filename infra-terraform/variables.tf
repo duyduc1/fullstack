@@ -92,7 +92,7 @@ variable "ec2_instance_type" {
 
   type        = string
 
-  default     = "t3.medium"
+  default     = "c7i-flex.large"
 
 }
  
@@ -102,7 +102,7 @@ variable "ec2_key_name" {
 
   type        = string
 
-  default     = "honda-pedi-key"
+  default     = "key-aws"
 
 }
  
@@ -112,7 +112,7 @@ variable "ec2_ami_id" {
 
   type        = string
 
-  default     = "" # Will use data source if empty
+  default     = "ami-0ec10929233384c7f" # Will use data source if empty
 
 }
  
