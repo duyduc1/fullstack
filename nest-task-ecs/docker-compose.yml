@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  # Item API Service
+  nest-item-api:
+    build: ./nest-item-api
+    env_file:
+      - .env 
+    image: nest-item-api:latest
+    container_name: nest-item-api
+    ports:
+      - "3001:3000"
+    environment:
+      DB_HOST: ${RDS_ENDPOINT}
+      DB_PORT: ${RDS_PORT}
+      DB_USERNAME: ${RDS_USERNAME}
+      DB_PASSWORD: ${RDS_PASSWORD}
+      DB_NAME: ${RDS_DB_NAME}
+    networks:
+      - microservices
+
+  # Order API Service
+  nest-order-api:
+    build: ./nest-order-api
+    env_file:
+      - .env 
+    image: nest-order-api:latest
+    container_name: nest-order-api
+    ports:
+      - "3002:3000"
+    environment:
+      DB_HOST: ${RDS_ENDPOINT}
+      DB_PORT: ${RDS_PORT}
+      DB_USERNAME: ${RDS_USERNAME}
+      DB_PASSWORD: ${RDS_PASSWORD}
+      DB_NAME: ${RDS_DB_NAME}
+    networks:
+      - microservices
+
+networks:
+  microservices:
+    driver: bridge
+
+volumes:
+  mysql_data:
