@@ -92,7 +92,7 @@ variable "ec2_instance_type" {
 
   type        = string
 
-  default     = "c7i-flex.large"
+  default     = "t2.micro"
 
 }
  
