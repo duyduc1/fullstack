@@ -34,7 +34,6 @@ import { Item } from './items/item.entity';
         extra: {
           connectionLimit: 10,          // connection pool
           connectTimeout: 60000,
-          acquireTimeout: 60000,
           waitForConnections: true,
         },
         retryAttempts: 5,
