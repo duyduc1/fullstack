@@ -97,5 +97,5 @@ jobs:
             npm ci
             npm audit fix --force
             npm run build
-            npm start
+            nohup npm start > app.log 2>&1 &
             echo "Deploy thành công!"
