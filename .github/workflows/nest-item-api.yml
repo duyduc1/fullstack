@@ -94,12 +94,8 @@ jobs:
 
             echo "Cài dependencies"
             cd nest-task-ecs/nest-item-api
-            npm ci --omit=dev
-
-            echo "Build lại"
+            npm ci
+            npm audit fix --force
             npm run build
-
-            echo "Restart PM2..."
             npm start
-
             echo "Deploy thành công!"
