@@ -38,11 +38,11 @@ async function bootstrap() {
     swaggerOptions: { persistAuthorization: true },
   });
 
-  const port = process.env.APP_PORT || 3000;
+  const port = process.env.APP_PORT || 3001;
   await app.listen(port);
 
   console.log(`🚀 App running:     http://localhost:${port}/api/v1`);
-  console.log(`📖 Swagger docs:    http://localhost:${port}/api/docs`);
+  console.log(`📖 Swagger docs:    http://localhost:${port}/api/docssssss`);
 }
 
 bootstrap();
